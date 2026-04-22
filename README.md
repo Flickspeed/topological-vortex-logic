@@ -1,6 +1,6 @@
 # Topological Vortex Logic (TVL)
 
-[![DOI - Papers](https://zenodo.org/badge/DOI/10.5281/zenodo.19682634.svg)](https://doi.org/10.5281/zenodo.19682634)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19682633.svg)](https://doi.org/10.5281/zenodo.19682633)
 [![DOI - Software](https://zenodo.org/badge/DOI/10.5281/zenodo.19683377.svg)](https://doi.org/10.5281/zenodo.19683377)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/)
@@ -19,11 +19,15 @@ and the companion technical report:
 > Vladimer Merebashvili, April 2026.  
 > DOI: [10.5281/zenodo.19682634](https://doi.org/10.5281/zenodo.19682634)
 
-Both papers are archived at Zenodo:  
-**https://doi.org/10.5281/zenodo.19682634**
+Both papers are archived at Zenodo (Concept DOI — always latest version):  
+**https://doi.org/10.5281/zenodo.19682633**
 
 The code is separately archived as a software record:  
 **https://doi.org/10.5281/zenodo.19683377**
+
+Version history:  
+- v1.0.1 (current): https://doi.org/10.5281/zenodo.19688501  
+- v1.0.0 (original): https://doi.org/10.5281/zenodo.19682634
 
 ---
 
@@ -283,7 +287,7 @@ Licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](http
 You are free to share and adapt this work with appropriate credit.
 
 **Cite the papers as:**  
-Merebashvili, V. (2026). *Topological Vortex Logic: Stable Winding States on the Three-Torus and Their Classification* (1.0.0). Zenodo. https://doi.org/10.5281/zenodo.19682634
+Merebashvili, V. (2026). *Topological Vortex Logic: Stable Winding States on the Three-Torus and Their Classification*. Zenodo. https://doi.org/10.5281/zenodo.19682633
 
 **Cite the code as:**  
 Merebashvili, V. (2026). *Topological Vortex Logic (TVL): Python Framework* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.19683377
