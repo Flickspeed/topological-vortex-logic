@@ -5,235 +5,121 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/)
 
-**A complete computational framework for classifying stable winding states on the three-torus T³.**
+---
 
-This repository contains `TVL.py` — the standalone implementation of the TVL classification map derived in:
+## The Research
 
-> **T³ as a Closed Information-Processing Environment**  
-> Vladimer Merebashvili, April 2026.  
-> DOI: [10.5281/zenodo.19682634](https://doi.org/10.5281/zenodo.19682634)
+**T³ as a Closed Information-Processing Environment**
+*Mathematical Requirements for Stable Discrete Information in a Compact Flat Manifold*
+Vladimer Merebashvili — April 2026
 
-and the companion technical report:
+**[→ Download the main paper (PDF)](https://doi.org/10.5281/zenodo.19682633)**
+**[→ Download the technical derivation (PDF)](https://doi.org/10.5281/zenodo.19682633)**
 
-> **Topological Vortex Logic: Complete Derivation**  
-> Vladimer Merebashvili, April 2026.  
-> DOI: [10.5281/zenodo.19682634](https://doi.org/10.5281/zenodo.19682634)
+### Abstract
 
-Both papers are archived at Zenodo (Concept DOI — always latest version):  
-**https://doi.org/10.5281/zenodo.19682633**
+We derive the minimal mathematical structures required for the three-dimensional flat
+torus T³ = R³/LZ³ to function as a closed, stable, discrete information-processing
+environment. The question is not what external physics the geometry implies, but what
+the geometry itself requires: what conditions must hold for information to be stably
+encoded, reliably clocked, conserved under flow, and filtered against noise within a
+compact flat manifold with periodic boundary conditions.
 
-The code is separately archived as a software record:  
-**https://doi.org/10.5281/zenodo.19683377**
+We identify five minimal requirements — stability, a well-defined clock, conservation,
+laminarity, and noise rejection — and show that each is satisfied by a unique
+mathematical object that T³ provides automatically, without external design. The stable
+information vocabulary consists of exactly 3³ − 1 = 26 discrete vortex states in three
+symmetry families determined by the first Betti number b₁(T³) = 3. The natural clock
+is the lowest cavity resonance f₁ = c/L. Information is conserved by seven independent
+quantities: four continuous Noether charges and three discrete topological winding
+numbers. Laminar flow is the unique consequence of the Laplace equation on a compact
+flat manifold. Noise rejection operates at two complementary levels: the Landau
+energetic filter and Legendre's three-square theorem.
 
-Version history:  
-- v1.0.1 (current): https://doi.org/10.5281/zenodo.19688501  
+### The Five Theorems
+
+1. **Stability** (CLEAN): A vortex state w in Z³ is stable if and only if |w|² ≤ 3.
+2. **Z₃ Invariant** (CLEAN): The charge q₃ = (w₁+w₂+w₃) mod 3 is a topological invariant from the T³/Z₃ orbifold holonomy.
+3. **A₂ Root Embedding** (CLEAN): The six traceless edge vortices form the A₂ root geometry of su(3).
+4. **Non-Isomorphism** (CLEAN): The three vortex families are pairwise non-isomorphic as Z₃-modules.
+5. **Mandatory Hierarchy** (CONDITIONAL): The non-isomorphism forces any coupling sensitive to the Z₃-module structure to treat the three families unequally.
+
+### SAP Labels
+
+| Label | Meaning |
+|-------|---------|
+| `CLEAN` | Derived from T³/Z₃ geometry alone. Zero external input. |
+| `IMPORTED` | Uses the single external QCD identification (B = ±1/3). |
+| `CONDITIONAL` | Geometry plus an additional coupling assumption. |
+| `WALL` | Open boundary requiring physics beyond the current framework. |
+
+---
+
+## The Papers
+
+Both papers are archived permanently at Zenodo:
+
+> **Main paper** — T³ as a Closed Information-Processing Environment (18 pages)
+> Merebashvili, V. (2026). Zenodo. https://doi.org/10.5281/zenodo.19682633
+
+> **Technical report** — Topological Vortex Logic: Complete Derivation (23 pages)
+> Full proofs of all five theorems with worked examples and embedded Python implementation.
+> Merebashvili, V. (2026). Zenodo. https://doi.org/10.5281/zenodo.19682633
+
+Version history:
+- v1.0.1 (current): https://doi.org/10.5281/zenodo.19688501
 - v1.0.0 (original): https://doi.org/10.5281/zenodo.19682634
 
 ---
 
-## What is TVL?
+## The Software — TVL.py
 
-The three-torus T³ = ℝ³/LZ³ equipped with a Z₃ orbifold symmetry supports exactly **26 stable vortex states** — the non-zero elements of {−1, 0, 1}³. These states organise into three families determined by how many of the three topological winding channels are simultaneously active:
+`TVL.py` is the standalone computational engine for the TVL framework. It implements
+all five theorems, classifies any winding vector, and verifies every result in the
+papers through 44 self-test assertions. No external dependencies — requires only Python 3.7+.
 
-| Shell | \|w\|² | Count | Generation | Physical sector |
-|-------|--------|-------|------------|-----------------|
-| Face  | 1 | 6  | 1st | Quarks / antiquarks |
-| Edge  | 2 | 12 | 2nd | Quarks / antiquarks / gluons |
-| Corner| 3 | 8  | 3rd | Leptons / exotic |
+The software is separately archived at: https://doi.org/10.5281/zenodo.19683377
 
-The classification is derived from geometry alone. The only external input is the assignment of baryon number B = ±1/3 from QCD (one identification, clearly labelled `IMPORTED`). Everything else — stability, Z₃ charge, SU(3) representation, sector — follows from T³/Z₃ topology with zero free parameters.
-
----
-
-## Requirements
-
-Python 3.7 or later. No external dependencies — only the standard library (`fractions`, `itertools`, `dataclasses`).
+### Quick Start
 
 ```bash
-python TVL.py        # runs self-test + B₃ verification + module invariants
+python TVL.py              # run self-test + B₃ verification + module invariants
+python TVL.py --all        # print all 26 stable states
+python TVL.py --map        # print full map including unstable states
+python TVL.py 1,0,0        # classify a specific winding vector
 ```
-
----
-
-## Quick Start
 
 ```python
 from TVL import TVL
 
-# Classify any winding vector
-TVL.classify((1, 0, 0))
-# w=(1, 0, 0)  |w|²=1  shell=face  gen=1  q₃=1  B=1/3  rep=3 (fundamental)  sector=quark
-
-TVL.classify((1, -1, 0))
-# w=(1,-1, 0)  |w|²=2  shell=edge  gen=2  q₃=0  B=  0  rep=A₂ root (gluon)  sector=gluon (SU(3) gauge)
-
-TVL.classify((1, 1, 1))
-# w=(1,  1, 1)  |w|²=3  shell=corner  gen=3  q₃=0  B=0  rep=singlet  sector=lepton
-
-TVL.classify((1, 1, -1))
-# w=(1,  1,-1)  |w|²=3  shell=corner  gen=3  q₃=1  B=1/3  rep=6 (sym tensor)  sector=exotic (color-6, open wall)
-
-TVL.classify((2, 0, 0))
-# w=(2, 0, 0)  |w|²=4  UNSTABLE  (splits favorably — forbidden generation)
+TVL.classify((1, 0, 0))     # face / gen 1 / q₃=1 / B=+1/3 / quark
+TVL.classify((1, 1, 1))     # corner / gen 3 / q₃=0 / B=0 / lepton
+TVL.classify((1, -1, 0))    # edge / q₃=0 / A₂ root / gluon
+TVL.classify((1, 1, -1))    # corner / exotic (color-6, open wall)
+TVL.classify((2, 0, 0))     # UNSTABLE (splits favorably)
 ```
 
----
-
-## The Complete Stable Vocabulary
+### Key Methods
 
 ```python
-TVL.print_all()         # all 26 states grouped by shell
-TVL.print_full_map()    # all states with |w|² ≤ 6, including unstable
+TVL.all_stable()              # dict of all 26 stable states
+TVL.closed_form_stable(w)     # algebraic stability proof for any w
+TVL.verify_b3_root_system()   # verify all 4 B₃ axioms + Cartan matrix
+TVL.print_module_invariants() # Z₃-module non-isomorphism table
 ```
 
-```
-── FACE  |w|²=1 ──────────────────────────────────────────
-w=  (1, 0, 0)  |w|²=1  shell=face  gen=1  q₃=1  B= 1/3  rep=3 (fundamental)   sector=quark
-w=  (0, 1, 0)  |w|²=1  shell=face  gen=1  q₃=1  B= 1/3  rep=3 (fundamental)   sector=quark
-w=  (0, 0, 1)  |w|²=1  shell=face  gen=1  q₃=1  B= 1/3  rep=3 (fundamental)   sector=quark
-w= (-1, 0, 0)  |w|²=1  shell=face  gen=1  q₃=2  B=-1/3  rep=3̄ (antifund)      sector=antiquark
-w=  (0,-1, 0)  |w|²=1  shell=face  gen=1  q₃=2  B=-1/3  rep=3̄ (antifund)      sector=antiquark
-w=  (0, 0,-1)  |w|²=1  shell=face  gen=1  q₃=2  B=-1/3  rep=3̄ (antifund)      sector=antiquark
-
-── EDGE  |w|²=2 ──────────────────────────────────────────
-  (6 gluon states with q₃=0, traceless — the A₂ root system of SU(3))
-  (3 quark edge states, 3 antiquark edge states)
-
-── CORNER  |w|²=3 ────────────────────────────────────────
-w=  (1, 1, 1)  |w|²=3  shell=corner  gen=3  q₃=0  B=  0  rep=singlet   sector=lepton
-w= (-1,-1,-1)  |w|²=3  shell=corner  gen=3  q₃=0  B=  0  rep=singlet   sector=lepton
-  (6 exotic corner states — rep-6, open wall)
-```
-
----
-
-## Key Methods
-
-### Classification
-
-```python
-state = TVL.classify((1, 0, 0))
-
-state.stable        # True
-state.shell         # 'face'
-state.generation    # 1
-state.q3            # 1
-state.B             # Fraction(1, 3)
-state.su3_rep       # '3 (fundamental)'
-state.sector        # 'quark'
-state.sap_label     # 'IMPORTED'  (because B=±1/3 uses external QCD identification)
-state.to_dict()     # all fields as a plain dict
-```
-
-### Stability proof (Theorem 1)
-
-```python
-TVL.closed_form_stable((2, 1, 0))
-# {
-#   'stable': False,
-#   'norm2': 5,
-#   'reason': '|w|²=5 ≥ 4. Component w[0]=2 has |w[0]|≥2.
-#              Choose s=(1,0,0): w·s=2 ≥ 2 > 1 = |s|².
-#              Split is favorable. Residual ws=(1,1,0), |ws|²=2.
-#              Energy: 5ε₀ → (1+2)ε₀ = 3ε₀.',
-#   'split_s': (1, 0, 0),
-#   'w_dot_s': 2
-# }
-```
-
-### Z₃-module invariants (Theorem 3 — Non-Isomorphism)
-
-The three families are pairwise non-isomorphic as Z₃-modules. This is proved computationally by comparing fixed-point counts and ρ₀ multiplicities under the cyclic permutation g: (w₁,w₂,w₃) → (w₂,w₃,w₁):
-
-```python
-TVL.print_module_invariants()
-
-# Z₃-Module Invariants (Theorem 3 — Non-Isomorphism)
-# ──────────────────────────────────────────────────────
-#   Family      N  Fixed pts    ρ₀    ρ₁    ρ₂  Uniform
-#   ──────────────────────────────────────────────────────
-#   face        6          0     2     2     2      Yes
-#   edge       12          0     4     4     4      Yes
-#   corner      8          2     4     2     2     No ←
-#
-#   Face vs Corner: fixed_pts 0 ≠ 2  → not isomorphic ✓
-#   Edge vs Corner: fixed_pts 0 ≠ 2  → not isomorphic ✓
-#   Face vs Edge:   ρ₀         2 ≠ 4  → not isomorphic ✓
-```
-
-### B₃ root system verification (Appendix A)
-
-```python
-TVL.verify_b3_root_system()
-
-# Axiom 1 — closure under negation:           ✓
-# Axiom 2 — no non-±1 multiples:              ✓
-# Axiom 3 — integer Cartan entries (306 pairs):✓
-# Axiom 4 — reflection closure:               ✓
-# Cartan matrix (simple roots):               ✓
-#   computed  = [[2, -1, 0], [-1, 2, -2], [0, -1, 2]]
-#   expected  = [[2, -1, 0], [-1, 2, -2], [0, -1, 2]]
-# Weyl group order: 3!×2³ = 48 = |O_h|  ✓
-# B₃ ≅ so(7): ALL AXIOMS PASS ✓
-```
-
----
-
-## Self-Test
-
-```bash
-python TVL.py
-```
-
-Runs 44 assertions covering vocabulary counts, individual vector classifications, SAP labels, the closed-form stability proof, the B₃ root system verification, and the Z₃-module non-isomorphism invariants. All must pass before any result in the papers should be trusted.
+### Self-Test
 
 ```
 Running TVL self-test (44 assertions)...
-
   OK  26 stable states total
   OK  6  face vortices
   OK  12 edge vortices
   OK  8  corner vortices
   ...
-  OK  corner fixed_pts=2
-  OK  face   rho0=2
-  OK  edge   rho0=4
-  OK  corner rho0=4
-
 All 44 assertions passed.
-```
 
----
-
-## SAP Labels
-
-Every classification carries an epistemic status label:
-
-| Label | Meaning |
-|-------|---------|
-| `CLEAN` | Derived from T³/Z₃ geometry alone. Zero external input. |
-| `IMPORTED` | Uses the single external QCD identification (B = ±1/3 from baryon number). |
-| `WALL` | Open boundary. Requires physics beyond the current T³/Z₃ framework to resolve. |
-
-The exotic sector (rep-6 corner states) is labelled `WALL`: these states are stable and coloured, but their physical identity requires coupling to the full gauge algebra — a result not yet derived within this framework.
-
----
-
-## Command-Line Usage
-
-```bash
-# Run full self-test (default)
-python TVL.py
-
-# Print all 26 stable states
-python TVL.py --all
-
-# Print full map including unstable states up to |w|²=6
-python TVL.py --map
-
-# Classify specific vectors
-python TVL.py 1,0,0
-python TVL.py 1,1,1  0,-1,1  2,0,0
+B₃ ≅ so(7): ALL AXIOMS PASS ✓
 ```
 
 ---
@@ -241,14 +127,11 @@ python TVL.py 1,1,1  0,-1,1  2,0,0
 ## Repository Structure
 
 ```
-TVL.py                        — the complete framework (no dependencies)
+TVL.py                        — standalone Python framework (no dependencies)
 README.md                     — this file
 t3_info_paper.pdf             — main paper (18 pages)
 TVL_Complete_Derivation.pdf   — technical report with proofs (23 pages)
 ```
-
-All files are also permanently archived at:  
-**https://doi.org/10.5281/zenodo.19682634**
 
 ---
 
@@ -261,7 +144,7 @@ All files are also permanently archived at:
 | Fourth generation | Forbidden | Theorem 1 |
 | Z₃ charge partition | 8 singlets / 9 quarks / 9 antiquarks | T³/Z₃ holonomy |
 | Symmetry group | O_h, order 48 | Cubic lattice symmetry |
-| Root system (face+edge) | B₃ ≅ so(7), 18 roots | Cartan matrix (Appendix A) |
+| Root system (face+edge) | B₃ ≅ so(7), 18 roots | Cartan matrix |
 | A₂ root system (gluons) | 6 traceless edge states | Traceless projection |
 | Non-isomorphism | Three families pairwise distinct | Theorem 3 |
 | Fundamental clock | f₁ = c/L = c/(2πR) | T³ cavity eigenspectrum |
@@ -272,7 +155,7 @@ All files are also permanently archived at:
 | Information latency | ≤ √3 · t_q | T³ geometry |
 | Landau filter | Decays |w|² > 3 within t_q | E(nw) = n²E(w) |
 | Legendre filter | Forbidden shells 4ᵃ(8b+7) | Three-square theorem |
-| First forbidden shell | \|n\|² = 7 | Legendre |
+| First forbidden shell | |n|² = 7 | Legendre |
 | Addressing capacity | log₂(26) ≈ 4.70 bits | 26-state vocabulary |
 | Spin structures | 8 = 2³ | H¹(T³, Z₂) ≅ Z₂³ |
 | External inputs | B = ±1/3 only | One QCD identification |
@@ -280,14 +163,26 @@ All files are also permanently archived at:
 
 ---
 
-## License
+## Citation
 
-© Vladimer Merebashvili, 2026.  
-Licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).  
-You are free to share and adapt this work with appropriate credit.
-
-**Cite the papers as:**  
+**Cite the papers as:**
 Merebashvili, V. (2026). *Topological Vortex Logic: Stable Winding States on the Three-Torus and Their Classification*. Zenodo. https://doi.org/10.5281/zenodo.19682633
 
-**Cite the code as:**  
-Merebashvili, V. (2026). *Topological Vortex Logic (TVL): Python Framework* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.19683377
+**Cite the code as:**
+Merebashvili, V. (2026). *Topological Vortex Logic (TVL): Python Framework* (v1.0.1). Zenodo. https://doi.org/10.5281/zenodo.19683377
+
+---
+
+## Acknowledgements
+
+The author thanks Dr. Z. Merebashvili for careful reading of the manuscript and for
+identifying the inconsistency in Section 4 regarding the incommensurability of the
+shell frequencies f₁, f₂, and f₃.
+
+---
+
+## License
+
+© Vladimer Merebashvili, 2026.
+Licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+You are free to share and adapt this work with appropriate credit.
