@@ -67,7 +67,9 @@ Both papers are archived permanently at Zenodo:
 > Merebashvili, V. (2026). Zenodo. https://doi.org/10.5281/zenodo.19682633
 
 Version history:
-- v1.0.1 (current): https://doi.org/10.5281/zenodo.19688501
+- v1.0.3 (current): https://doi.org/10.5281/zenodo.19752456
+- v1.0.2: https://doi.org/10.5281/zenodo.19750357
+- v1.0.1: https://doi.org/10.5281/zenodo.19688501
 - v1.0.0 (original): https://doi.org/10.5281/zenodo.19682634
 
 ---
