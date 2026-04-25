@@ -183,6 +183,10 @@ shell frequencies f₁, f₂, and f₃.
 
 ## Changelog
 
+### v1.0.3 (April 2026)
+- GitHub URL corrected to github.com/MerebashviliV/topological-vortex-logic
+- All other files unchanged from v1.0.2
+
 ### v1.0.2 (April 2026)
 **T3_Information_Processing_Environment.pdf**
 - DOI on title page updated to Concept DOI (10.5281/zenodo.19682633)
