@@ -62,8 +62,8 @@ Both papers are archived permanently at Zenodo:
 > **Main paper** — T³ as a Closed Information-Processing Environment (18 pages)
 > Merebashvili, V. (2026). Zenodo. https://doi.org/10.5281/zenodo.19682633
 
-> **Technical report** — Topological Vortex Logic: Complete Derivation (23 pages)
-> Full proofs of all five theorems with worked examples and embedded Python implementation.
+> **Technical report** — Topological Vortex Logic: Complete Derivation (12 pages)
+> Full proofs of all five theorems with worked examples. Code available separately via software DOI.
 > Merebashvili, V. (2026). Zenodo. https://doi.org/10.5281/zenodo.19682633
 
 Version history:
@@ -129,8 +129,8 @@ B₃ ≅ so(7): ALL AXIOMS PASS ✓
 ```
 TVL.py                        — standalone Python framework (no dependencies)
 README.md                     — this file
-t3_info_paper.pdf             — main paper (18 pages)
-TVL_Complete_Derivation.pdf   — technical report with proofs (23 pages)
+T3_Information_Processing_Environment.pdf — main paper (18 pages)
+TVL_Complete_Derivation.pdf   — technical report with proofs (12 pages)
 ```
 
 ---
@@ -180,6 +180,30 @@ identifying the inconsistency in Section 4 regarding the incommensurability of t
 shell frequencies f₁, f₂, and f₃.
 
 ---
+
+## Changelog
+
+### v1.0.2 (April 2026)
+**T3_Information_Processing_Environment.pdf**
+- DOI on title page updated to Concept DOI (10.5281/zenodo.19682633)
+- References reordered [1]–[8] to match order of first citation in text
+- Appendix headers properly titled: "Appendix A — Verification of the B₃ Root System" and "Appendix B — Legendre's Three-Square Theorem"
+
+**TVL_Complete_Derivation.pdf**
+- DOI on title page updated to Concept DOI (10.5281/zenodo.19682633)
+- Appendix C code listing removed; replaced with pointer to standalone software record (doi.org/10.5281/zenodo.19683377)
+- Paper reduced from 23 to 12 pages
+
+### v1.0.1 (April 2026)
+- ℏ defined as reduced Planck constant at first use (§3.2)
+- h defined as Planck's constant at first use (§5.1)
+- c defined as characteristic signal propagation speed at first use (§4.2)
+- §4.4 corrected: f₁, f₂, f₃ are mutually incommensurate; f₁ is the master clock
+- All key display equations numbered (10 in main paper, 13 in technical report)
+- Acknowledgements section added
+
+### v1.0.0 (April 21, 2026)
+- Initial release
 
 ## License
 
