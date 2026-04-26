@@ -14,6 +14,7 @@
 Vladimer Merebashvili — April 2026
 
 **[→ Download the main paper (PDF)](https://doi.org/10.5281/zenodo.19682633)**
+
 **[→ Download the technical derivation (PDF)](https://doi.org/10.5281/zenodo.19682633)**
 
 ### Abstract
@@ -65,12 +66,6 @@ Both papers are archived permanently at Zenodo:
 > **Technical report** — Topological Vortex Logic: Complete Derivation (12 pages)
 > Full proofs of all five theorems with worked examples. Code available separately via software DOI.
 > Merebashvili, V. (2026). Zenodo. https://doi.org/10.5281/zenodo.19682633
-
-Version history:
-- v1.0.3 (current): https://doi.org/10.5281/zenodo.19752456
-- v1.0.2: https://doi.org/10.5281/zenodo.19750357
-- v1.0.1: https://doi.org/10.5281/zenodo.19688501
-- v1.0.0 (original): https://doi.org/10.5281/zenodo.19682634
 
 ---
 
@@ -185,11 +180,26 @@ shell frequencies f₁, f₂, and f₃.
 
 ## Changelog
 
-### v1.0.3 (April 2026)
+### v1.0.4 (April 26, 2026)
+**TVL_Complete_Derivation.pdf**
+- Theorem numbering corrected (1-5 now match section headings)
+- Tc defined as superfluid critical temperature at first use
+- Double minus sign typo fixed in §2.4 table
+- AI audit attribution removed from scope note in §4.2
+- All 7 references cited inline in body text
+- References reordered [1]-[7] to match citation order in body
+- Citations removed from section titles and displayed equations
+- Duplicate end-of-proof symbol removed from §4.2
+- End-of-proof symbol unified to filled black square throughout
+
+**T3_Information_Processing_Environment.pdf**
+- End-of-proof symbol updated to filled black square
+
+### v1.0.3 (April 25, 2026)
 - GitHub URL corrected to github.com/MerebashviliV/topological-vortex-logic
 - All other files unchanged from v1.0.2
 
-### v1.0.2 (April 2026)
+### v1.0.2 (April 24, 2026)
 **T3_Information_Processing_Environment.pdf**
 - DOI on title page updated to Concept DOI (10.5281/zenodo.19682633)
 - References reordered [1]–[8] to match order of first citation in text
@@ -200,7 +210,7 @@ shell frequencies f₁, f₂, and f₃.
 - Appendix C code listing removed; replaced with pointer to standalone software record (doi.org/10.5281/zenodo.19683377)
 - Paper reduced from 23 to 12 pages
 
-### v1.0.1 (April 2026)
+### v1.0.1 (April 21, 2026)
 - ℏ defined as reduced Planck constant at first use (§3.2)
 - h defined as Planck's constant at first use (§5.1)
 - c defined as characteristic signal propagation speed at first use (§4.2)
